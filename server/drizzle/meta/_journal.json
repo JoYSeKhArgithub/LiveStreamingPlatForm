@@ -8,6 +8,13 @@
       "when": 1773587301348,
       "tag": "0000_condemned_vivisector",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1773596981168,
+      "tag": "0001_sloppy_lenny_balinger",
+      "breakpoints": true
     }
   ]
 }
