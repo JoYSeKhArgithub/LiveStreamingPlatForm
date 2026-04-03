@@ -14,6 +14,10 @@ export const createMatch = async (req, res) => {
     try {
         const response = await matchService.createMatch(parsed.data);
 
+        if (res.app.locals.broadCastMatchCreated){
+            res.app.locals.broadCastMatchCreated(response)
+        }
+
         return res.status(201).json({
             data: response
         });
@@ -41,7 +45,7 @@ export const getmatches = async(req,res)=>{
             response: response
         })
     } catch (error) {
-        return response.status(500).json({
+        return res.status(500).json({
             error: "Failed to list matches"
         })
     }
