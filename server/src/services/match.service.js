@@ -12,7 +12,7 @@ const createMatch = async (data) => {
         endTime: new Date(endTime),
         status: getMatchStatus(startTime, endTime)
     }).returning();
-    // console.log('the result is ', result)
+    
     return event;
 };
 
