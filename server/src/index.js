@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import { matchRouter } from "./router/matches.js";
+import { commenTryRoute } from "./router/commnetry.js";
 import http from 'http'
 import { attachedWebsocketServer } from "./ws/server.js";
 
@@ -19,9 +20,12 @@ app.get("/", (req, res) => {
 });
 
 app.use('/api/v1/matches',matchRouter);
+app.use('/api/v1/commnetry',commenTryRoute)
 
-const {broadCastMatchCreated} = attachedWebsocketServer(server);
+const {broadCastMatchCreated,broadCastCommnetry} = attachedWebsocketServer(server);
 app.locals.broadCastMatchCreated = broadCastMatchCreated;
+app.locals.broadCastCommnetry = broadCastCommnetry;
+
 
 server.listen(port,HOST,()=>{
   const baseUrl = HOST === '0.0.0.0'?`http://localhost:${port}`:`http://${HOST}:${port}`;

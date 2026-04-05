@@ -1,6 +1,6 @@
 import { createMatchSchema, listMatchesQuerySchema } from "../validation/matches.js"
 import matchService from '../services/match.service.js'
-import { response } from "express";
+
 
 export const createMatch = async (req, res) => {
     const parsed = createMatchSchema.safeParse(req.body);
